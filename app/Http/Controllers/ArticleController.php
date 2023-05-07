@@ -25,13 +25,13 @@ class ArticleController extends Controller
 
     public function add(){
 
-        $data = [
+        $categories = [
             [ "id" => 1, "name" => "News" ],
             [ "id" => 2, "name" => "Tech" ],
             ];
 
         return view('articles.add', [
-            'categories' => $data
+            'categories' => $categories
         ]);
     }
 
@@ -57,13 +57,49 @@ class ArticleController extends Controller
     }
 
 
-    public function delete($id)
-        {
+    public function delete($id){
+
         $article = Article::find($id);
         $article->delete();
 
         return redirect('/articles')->with('info', 'Article deleted');
+    }
+
+    public function edit($id){
+
+        $categories = [
+            [ "id" => 1, "name" => "News" ],
+            [ "id" => 2, "name" => "Tech" ],
+            ];
+
+        $article = Article::find($id);
+        return view('articles.edit',[
+            'article' => $article,
+            'categories' => $categories
+        ]);
+    }
+
+    public function update($id){
+
+        $validator = validator(request()->all(), [
+            'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
         }
+
+        $article = Article::find($id);
+        // return $article;
+        $article->title = request()->title;
+        $article->body = request()->body;
+        $article->category_id = request()->category_id;
+        $article->save();
+        
+        return redirect('/articles');
+    }
 
 
 }
