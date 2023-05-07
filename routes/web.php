@@ -21,3 +21,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [ArticleController::class, 'index']);
 Route::get('articles', [ArticleController::class , 'index'])->name('articles.index');
 Route::get('articles/detail/{id}', [ArticleController::class, 'detail'])->name('articles.detail');
+
+Route::get('/articles/add', [ArticleController::class, 'add']);
+Route::post('/articles/add', [ArticleController::class, 'create']);
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
