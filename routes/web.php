@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,19 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('articles', function(){
-    return 'Article Lists';
-});
-
-Route::get('articles/detail', function(){
-    return 'Article Detail';
-})->name('articles.detail');
-
-Route::get('articles/detail/{id}', function($id){
-    return "Articles Detail-$id";
-});
-
-Route::get('articles/more', function(){
-    return redirect()->route('articles.detail');
-});
+Route::get('/', [ArticleController::class, 'index']);
+Route::get('articles', [ArticleController::class , 'index'])->name('articles.index');
+Route::get('articles/detail/{id}', [ArticleController::class, 'detail'])->name('articles.detail');
