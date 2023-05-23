@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Modules\Categories\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::post('/articles/add', [ArticleController::class, 'create']);
 Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
 Route::get('/articles/edit/{id}', [ArticleController::class, 'edit']);
 Route::post('/articles/edit/{id}', [ArticleController::class, 'update']);
+
+Route::resource('categories', CategoryController::class);
