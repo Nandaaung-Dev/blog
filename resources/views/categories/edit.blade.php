@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label>Description</label>
-            <textarea type="text" name="description" class="form-control" placeholder="Enter description">{{ $category->descrption }}</textarea>
+            <textarea type="text" name="description" class="form-control" placeholder="Enter description">{{ $category->description }}</textarea>
         </div>
         <input type="submit" value="Update Category"
         class="btn btn-primary float-end">

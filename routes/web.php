@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
+// use App\Http\Controllers\ArticleController;
+use App\Modules\Articles\Http\Controllers\ArticleController;
 use App\Modules\Categories\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
