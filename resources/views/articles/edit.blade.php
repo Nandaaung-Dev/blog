@@ -11,7 +11,8 @@
             </ol>
         </div>
     @endif
-    <form method="post">
+    <form method="post" action="{{route('articles.update', ['article' => $article])}}">
+        @method('put')
         @csrf
         <div class="mb-3">
             <label>Title</label>
@@ -31,7 +32,7 @@
                 @endforeach
             </select>
         </div>
-        <input type="submit" value="Add Article"
+        <input type="submit" value="Edit Article"
         class="btn btn-primary float-end">
     </form>
 </div>

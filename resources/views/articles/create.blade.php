@@ -11,7 +11,7 @@
             </ol>
         </div>
     @endif
-    <form method="post">
+    <form method="post" action="{{route('articles.store')}}">
         @csrf
         <div class="mb-3">
             <label>Title</label>

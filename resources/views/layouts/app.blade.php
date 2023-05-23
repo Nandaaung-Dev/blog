@@ -36,14 +36,14 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link text-success"
-                            href="{{ route('categories.index') }}">
-                            Show Categories
+                            href="{{ route('articles.create') }}">
+                            + Add Article
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-success"
-                            href="{{ url('/articles/add') }}">
-                            + Add Article
+                            href="{{ route('categories.index') }}">
+                            Show Categories
                             </a>
                         </li>
                     </ul>

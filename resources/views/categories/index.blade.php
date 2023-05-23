@@ -7,11 +7,10 @@
                 {{ session('info') }}
             </div>            
         @endif
-       <h1>Category Page</h1>
-       <a class="btn btn-info"
-       href="{{ route('categories.create') }}">
-       Create Category
-       </a>
+            <a class="btn btn-primary mb-2 "
+            href="{{ route('categories.create') }}">
+            Add Category
+            </a>
         @foreach ($categories as $category )
             <div class="card mb-2">
                 <div class="card-body">

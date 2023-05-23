@@ -64,7 +64,7 @@ class CategoryController extends Controller
         $request->validated();
         $category = $this->service->update($request, $category);
 
-        return redirect()->route('categories.index')->with('info', 'Successsfully created');
+        return redirect()->route('categories.index')->with('info', 'Successsfully updated');
     }
 
     public function destroy($id)

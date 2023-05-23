@@ -16,7 +16,7 @@
                         {{ $article->created_at->diffForHumans() }}
                     </div>
                     <p class="card-text">{{ $article->body }}</p>
-                    <a href="{{ url("/articles/detail/$article->id") }}">
+                    <a href="{{ route('articles.show', ['article' => $article])}}">
                         View Detail &raquo;
                     </a>
                 </div>
