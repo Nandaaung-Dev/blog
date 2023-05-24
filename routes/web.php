@@ -1,6 +1,8 @@
 <?php
 
 // use App\Http\Controllers\ArticleController;
+
+use App\Http\Controllers\CommentController;
 use App\Modules\Articles\Http\Controllers\ArticleController;
 use App\Modules\Categories\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+    return redirect()->route('articles.index');
+});
 
 Route::get('/', [ArticleController::class, 'index']);
 // Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
@@ -32,3 +36,6 @@ Route::get('/', [ArticleController::class, 'index']);
 // Route::post('/articles/edit/{id}', [ArticleController::class, 'update']);
 Route::resource('articles', ArticleController::class);
 Route::resource('categories', CategoryController::class);
+
+Route::post('/comments/add', [CommentController::class, 'create']);
+Route::get('/comments/delete/{id}', [CommentController::class, 'delete']);

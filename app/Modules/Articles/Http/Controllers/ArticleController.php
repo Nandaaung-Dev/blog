@@ -16,10 +16,12 @@ class ArticleController extends Controller
     public function __construct(ArticleService $articleService)
     {
         $this->articleService = $articleService;
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index()
     {
+        // dd($this->articleService->getAll());
         return view('articles.index', [
             'articles' => $this->articleService->getAll()
         ]);
